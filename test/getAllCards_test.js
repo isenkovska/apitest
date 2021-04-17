@@ -2,8 +2,8 @@ const expect = require('chai').expect;
 const supertest = require('supertest');
 const faker = require('faker');
 const request = supertest('https://nazarov-kanban-server.herokuapp.com');
+
 let response;
-// let cardsId = []
 
 describe('GET ALL CARDS', () => {
 
@@ -37,12 +37,13 @@ describe('GET ALL CARDS', () => {
             if (!(el.hasOwnProperty('priority') && el.hasOwnProperty('description') && el.hasOwnProperty('name'))) {
                 isError = true;
             }
+            ;
         });
         expect(isError).eq(false);
     });
 });
 
-describe.skip('Create new card', () => {
+describe('Create new card', () => {
     it('Create new card', async () => {
         let arrLength = response.body.length;
         let newCard = {
